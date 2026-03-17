@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Արթուր Խոցանյան | Ապրենք Հզոր Հայաստանում</title>
-    <link href="https://fonts.googleapis.com/css2?family=Mardoto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-blue: #0d47a1;
@@ -12,17 +12,17 @@
             --white: #ffffff;
             --gray: #f4f4f4;
             --dark-text: #333;
+            --accent-gold: #ffc107;
         }
 
         body {
-            font-family: 'Mardoto', sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             color: var(--dark-text);
             line-height: 1.6;
         }
 
-        /* Header */
         header {
             background: var(--primary-blue);
             color: white;
@@ -35,120 +35,157 @@
             z-index: 1000;
         }
 
-        .logo { font-weight: bold; font-size: 1.5rem; }
+        .logo { font-weight: bold; font-size: 1.5rem; cursor: pointer; }
+        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; cursor: pointer; }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 500;
-        }
+        /* Sections Handling */
+        .page-section { display: none; min-height: 100vh; padding-top: 80px; }
+        .active { display: block; }
 
-        /* Hero Section */
+        /* Hero / Main Page */
         .hero {
-            background: linear-gradient(rgba(13, 71, 161, 0.8), rgba(13, 71, 161, 0.8)), 
-                        url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(13, 71, 161, 0.7), rgba(13, 71, 161, 0.7)), 
+                        url('https://images.unsplash.com/photo-1548107116-7667cf75691c?auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
-            height: 80vh;
+            height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             color: white;
             text-align: center;
-            padding: 0 20px;
         }
 
         .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
-        .hero p { font-size: 1.5rem; margin-bottom: 30px; }
+        .hero .manifesto { max-width: 800px; font-size: 1.2rem; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px; margin-bottom: 20px; }
 
-        .btn {
-            background: var(--white);
-            color: var(--primary-blue);
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .btn:hover { background: #e0e0e0; }
-
-        /* Reforms Section */
-        .reforms { padding: 4rem 10%; background: var(--gray); text-align: center; }
-        .reforms h2 { color: var(--primary-blue); margin-bottom: 3rem; font-size: 2.5rem; }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .card:hover { transform: translateY(-10px); }
-        .card h3 { color: var(--light-blue); }
-
-        /* Footer */
-        footer {
-            background: #1a1a1a;
+        /* Sub-pages Styles */
+        .sub-page {
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 5rem 10%;
             color: white;
-            text-align: center;
-            padding: 2rem;
+            min-height: 100vh;
         }
+
+        .content-box {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 3rem;
+            border-radius: 15px;
+            max-width: 900px;
+            margin: auto;
+            border-left: 5px solid var(--accent-gold);
+        }
+
+        /* Specific Backgrounds */
+        #security-page { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://upload.wikimedia.org/wikipedia/commons/4/43/Ararat_and_the_Armenian_Monastery_of_Khor_Virap.jpg'); } /* Ararat */
+        #economy-page { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1621244249243-437bbd17313a?auto=format&fit=crop&w=1350&q=80'); } /* Republic Square */
+        #education-page { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1350&q=80'); } /* Matenadaran style */
+        #finance-page { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1350&q=80'); } /* Modern Armenia */
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 2rem 5%; }
+        .card { background: white; padding: 2rem; border-radius: 10px; text-align: center; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s; }
+        .card:hover { transform: scale(1.05); background: var(--gray); }
+
+        .back-btn { display: inline-block; margin-top: 20px; padding: 10px 20px; background: var(--accent-gold); color: black; text-decoration: none; border-radius: 5px; font-weight: bold; }
+
+        footer { background: #1a1a1a; color: white; text-align: center; padding: 2rem; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">ԱՀՀ</div>
+        <div class="logo" onclick="showSection('home')">ԱՀՀ</div>
         <nav>
-            <a href="#home">Գլխավոր</a>
-            <a href="#about">Իմ մասին</a>
-            <a href="#reforms">Ծրագիր</a>
-            <a href="#contact">Կապ</a>
+            <a onclick="showSection('home')">Գլխավոր</a>
+            <a onclick="showSection('finance-page')">Ծրագիր</a>
         </nav>
     </header>
 
-    <section class="hero" id="home">
-        <h1>Արթուր Խոցանյան</h1>
-        <p>Ապրենք Հզոր Հայաստանում. Մեր ապագան մեր ձեռքերում է</p>
-        <a href="#reforms" class="btn">Ծանոթացիր ծրագրին</a>
-    </section>
+    <main id="home" class="page-section active">
+        <section class="hero">
+            <h1>Արթուր Խոցանյան</h1>
+            <div class="manifesto">
+                <h3>Ինչո՞ւ ընտրել ինձ</h3>
+                <p>Մենք կանգնած ենք պատմական ընտրության առջև։ Իմ նպատակն է ստեղծել մի երկիր, որտեղ հայը պաշտպանված է իր տանը, հպարտ է իր աշխատանքով և վստահ է զավակների ապագայի համար։ Ես չեմ խոստանում անիրական հրաշքներ, ես առաջարկում եմ հստակ հաշվարկված բարեփոխումներ և անմնացորդ նվիրում մեր հայրենիքին։</p>
+            </div>
+            <p>Ընտրենք զարգացումը, ընտրենք ուժեղ Հայաստանը։</p>
+        </section>
 
-    <section class="reforms" id="reforms">
-        <h2>Մեր Բարեփոխումները</h2>
-        <div class="grid">
-            <div class="card">
+        <section class="grid">
+            <div class="card" onclick="showSection('security-page')">
                 <h3>🛡️ Անվտանգություն</h3>
-                <p>Ժամանակակից զինտեխնիկայի ներդրում և սահմանների թվային վերահսկողություն։</p>
+                <p>Սեղմեք մանրամասների համար</p>
             </div>
-            <div class="card">
+            <div class="card" onclick="showSection('economy-page')">
                 <h3>📈 Տնտեսություն</h3>
-                <p>Հարկային բեռի թեթևացում փոքր բիզնեսի համար և ներդրումների պաշտպանություն։</p>
+                <p>Սեղմեք մանրամասների համար</p>
             </div>
-            <div class="card">
+            <div class="card" onclick="showSection('education-page')">
                 <h3>🎓 Կրթություն</h3>
-                <p>Ուսանողական վարկերի 0% տոկոսադրույք և որակյալ մասնագիտական կրթություն։</p>
+                <p>Սեղմեք մանրամասների համար</p>
             </div>
-            <div class="card">
+            <div class="card" onclick="showSection('finance-page')">
                 <h3>🏦 Ֆինանսներ</h3>
-                <p>Մատչելի հիփոթեքային ծրագրեր նոր կազմվող ընտանիքների համար։</p>
+                <p>Սեղմեք մանրամասների համար</p>
             </div>
+        </section>
+    </main>
+
+    <div id="security-page" class="page-section sub-page">
+        <div class="content-box">
+            <h2>🛡️ Անվտանգություն և Պաշտպանություն</h2>
+            <p>Մեր երկրի անվտանգությունը սկսվում է հզոր և արդիականացված բանակից։ Մեր ծրագրի հիմքում Պաշտպանության նախարարության արմատական բարեփոխումն է։ Մենք նախատեսում ենք ներդնել «Խելացի պաշտպանություն» համակարգը, որը ներառում է սահմանների ամբողջական թվային վերահսկողություն և ԱԹՍ-ների սեփական արտադրության ընդլայնում։ Զինվորական ծառայությունը պետք է դառնա պատվաբեր և տեխնոլոգիապես հագեցած, իսկ սպայական անձնակազմի սոցիալական երաշխիքները կբարձրացվեն նոր մակարդակի։</p>
+            <a onclick="showSection('home')" class="back-btn">Վերադառնալ</a>
         </div>
-    </section>
+    </div>
+
+    <div id="economy-page" class="page-section sub-page">
+        <div class="content-box">
+            <h2>📈 Տնտեսական Վերելք</h2>
+            <p>Մեր նպատակն է յուրաքանչյուր քաղաքացու գրպանում զգալի փոփոխություն ապահովելը։ Մենք կիրականացնենք հարկային լայնածավալ ամնիստիա փոքր ձեռնարկությունների համար և կստեղծենք «Արտահանման աջակցության կենտրոններ»։ Մարդկանց ֆինանսական դրությունը բարելավելու համար կներդրվի եկամտային հարկի վերադարձի նոր համակարգ՝ ուղղված տեղական արտադրանքի սպառմանը։ Մենք կխրախուսենք բարձր տեխնոլոգիական աշխատատեղերի ստեղծումը մարզերում՝ կրճատելով գործազրկությունը 40%-ով առաջիկա 5 տարում։</p>
+            <a onclick="showSection('home')" class="back-btn">Վերադառնալ</a>
+        </div>
+    </div>
+
+    <div id="education-page" class="page-section sub-page">
+        <div class="content-box">
+            <h2>🎓 Կրթություն և Նորարարություն</h2>
+            <p>Կրթությունը մեր ազգային անվտանգության հիմքն է։ Մենք ստեղծելու ենք նոր «Ազգային Կրթական Էկոհամակարգ», որտեղ բուհերը կաշխատեն անմիջապես գործատուների հետ։ Պետական ֆինանսավորումը կուղղվի ոչ թե շենքերին, այլ տաղանդներին։ Նախատեսվում է 0% տոկոսադրույքով ուսանողական վարկերի տրամադրում և լավագույն ուսանողների համար ամբողջական կրթաթոշակների ֆոնդի ստեղծում։ Դպրոցներում կներդրվեն ռոբոտաշինության և արհեստական բանականության պարտադիր լաբորատորիաներ։</p>
+            <a onclick="showSection('home')" class="back-btn">Վերադառնալ</a>
+        </div>
+    </div>
+
+    <div id="finance-page" class="page-section sub-page">
+        <div class="content-box">
+            <h2>🏦 Ֆինանսական Կայունություն</h2>
+            <p>Ֆինանսական համակարգը պետք է ծառայի մարդուն, ոչ թե հակառակը։ Մենք կընդլայնենք հիփոթեքային ծրագրերը՝ հասցնելով դրանք տարեկան 2-3%-ի նորաստեղծ ընտանիքների համար։ Բացի այդ, կներդրվի «Ապագա Քաղաքացի» հիմնադրամը, որտեղ յուրաքանչյուր նորածնի անունով պետությունը կկատարի ներդրում։ Մենք կբարեփոխենք բանկային օրենսդրությունը՝ սահմանափակելով տույժերն ու տուգանքները և ստեղծելով ավելի թափանցիկ ու մատչելի վարկավորման պայմաններ բոլորի համար։</p>
+            <a onclick="showSection('home')" class="back-btn">Վերադառնալ</a>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2026 Արթուր Խոցանյան - «ԱՀՀ» Կուսակցություն</p>
-        <p>Միասին դեպի Հզոր Հայաստան</p>
+        <p>Մեր ապագան՝ մեր միասնության մեջ է</p>
     </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+    </script>
 
 </body>
 </html>
