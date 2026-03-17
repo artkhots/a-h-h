@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Արթուր Խոցանյան | Ապրենք Հզոր Հայաստանում</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mardoto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0d47a1;
+            --light-blue: #1976d2;
+            --white: #ffffff;
+            --gray: #f4f4f4;
+            --dark-text: #333;
+        }
+
+        body {
+            font-family: 'Mardoto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: var(--primary-blue);
+            color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo { font-weight: bold; font-size: 1.5rem; }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(13, 71, 161, 0.8), rgba(13, 71, 161, 0.8)), 
+                        url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.5rem; margin-bottom: 30px; }
+
+        .btn {
+            background: var(--white);
+            color: var(--primary-blue);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover { background: #e0e0e0; }
+
+        /* Reforms Section */
+        .reforms { padding: 4rem 10%; background: var(--gray); text-align: center; }
+        .reforms h2 { color: var(--primary-blue); margin-bottom: 3rem; font-size: 2.5rem; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover { transform: translateY(-10px); }
+        .card h3 { color: var(--light-blue); }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">ԱՀՀ</div>
+        <nav>
+            <a href="#home">Գլխավոր</a>
+            <a href="#about">Իմ մասին</a>
+            <a href="#reforms">Ծրագիր</a>
+            <a href="#contact">Կապ</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>Արթուր Խոցանյան</h1>
+        <p>Ապրենք Հզոր Հայաստանում. Մեր ապագան մեր ձեռքերում է</p>
+        <a href="#reforms" class="btn">Ծանոթացիր ծրագրին</a>
+    </section>
+
+    <section class="reforms" id="reforms">
+        <h2>Մեր Բարեփոխումները</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>🛡️ Անվտանգություն</h3>
+                <p>Ժամանակակից զինտեխնիկայի ներդրում և սահմանների թվային վերահսկողություն։</p>
+            </div>
+            <div class="card">
+                <h3>📈 Տնտեսություն</h3>
+                <p>Հարկային բեռի թեթևացում փոքր բիզնեսի համար և ներդրումների պաշտպանություն։</p>
+            </div>
+            <div class="card">
+                <h3>🎓 Կրթություն</h3>
+                <p>Ուսանողական վարկերի 0% տոկոսադրույք և որակյալ մասնագիտական կրթություն։</p>
+            </div>
+            <div class="card">
+                <h3>🏦 Ֆինանսներ</h3>
+                <p>Մատչելի հիփոթեքային ծրագրեր նոր կազմվող ընտանիքների համար։</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Արթուր Խոցանյան - «ԱՀՀ» Կուսակցություն</p>
+        <p>Միասին դեպի Հզոր Հայաստան</p>
+    </footer>
+
+</body>
+</html>
